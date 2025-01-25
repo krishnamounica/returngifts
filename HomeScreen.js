@@ -5,13 +5,14 @@ import Categories from './Categories';
 import Products from './Products';
 import Search from './Search'; // Import Search component
 import logo from './assets/returngifts.png';
+import config from './config';
 
 const HomeScreen = ({ navigation }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const baseURL = process.env.REACT_APP_BASE_URL;
+  const baseURL = config.BASE_URL;
 
   useEffect(() => {
     const fetchProducts = async () => {

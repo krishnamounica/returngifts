@@ -15,6 +15,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveUserData } from './store';
 import axios from 'axios';
+import config from './config';
 
 const Products = ({ selectedCategory, allProducts, navigation }) => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const Products = ({ selectedCategory, allProducts, navigation }) => {
     status: "pending",
     userName:user.userName
   });
-
+  const baseURL = config.BASE_URL;
   const filteredProducts =
     selectedCategory === 'all'
       ? allProducts

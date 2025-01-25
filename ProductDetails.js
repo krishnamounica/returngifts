@@ -12,6 +12,7 @@ import {
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { addItem } from './store'; // Ensure this is the correct path to your Redux store
+import config from './config';
 
 const ProductDetails = ({ route }) => {
   const { productId } = route.params; // Get productId from route params
@@ -19,7 +20,7 @@ const ProductDetails = ({ route }) => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
-  const baseURL = process.env.REACT_APP_BASE_URL;
+  const baseURL = config.BASE_URL;
 
   useEffect(() => {
     const fetchProductDetails = async () => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, ScrollView } from 'react-native';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import config from './config';
 export default function RegisterScreen() {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,7 +21,7 @@ export default function RegisterScreen() {
     setFormData({ ...formData, [key]: value });
   };
 
-  
+  const baseURL = config.BASE_URL;
 
 
   const handleRegister = async () => {

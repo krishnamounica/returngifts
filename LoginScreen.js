@@ -3,13 +3,16 @@ import { View, Text, TextInput, Button, StyleSheet, Alert, ScrollView, Touchable
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { saveUserData } from './store';
+import config from './config';
+
+
 
 export default LoginScreen = ({ navigation }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-  const baseURL = process.env.REACT_APP_BASE_URL;
+  const baseURL = config.BASE_URL;
 
   const fetchData = async () => {
     try {
@@ -28,7 +31,7 @@ export default LoginScreen = ({ navigation }) => {
 
   const handleLogin = async () => {
     const url = `${baseURL}/users/login`; // Replace with your local IP
-
+    console.log("=================",url)
     try {
       const response = await axios.post(url, formData, {
         headers: {
