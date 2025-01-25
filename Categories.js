@@ -6,12 +6,12 @@ const Categories = ({ onCategorySelect }) => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState('all'); // Track the active category
-
+  const baseURL = process.env.REACT_APP_BASE_URL;
   useEffect(() => {
     const fetchCategories = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://192.168.1.4:3000/api/v1/categories', {
+        const response = await axios.get(`${baseURL}/categories`, {
           headers: {
             Authorization: 'Bearer YOUR_AUTH_TOKEN',
           },

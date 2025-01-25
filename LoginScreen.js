@@ -9,14 +9,25 @@ export default LoginScreen = ({ navigation }) => {
     email: '',
     password: '',
   });
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${baseURL}/products`);
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  
   const dispatch = useDispatch();
   const handleChange = (key, value) => {
     setFormData({ ...formData, [key]: value });
   };
 
   const handleLogin = async () => {
-    const url = 'http://192.168.1.4:3000/api/v1/users/login'; // Replace with your local IP
+    const url = `${baseURL}/users/login`; // Replace with your local IP
 
     try {
       const response = await axios.post(url, formData, {
@@ -27,7 +38,7 @@ export default LoginScreen = ({ navigation }) => {
 
       if (response.status === 200 || response.status === 201) {
         Alert.alert('Success', 'Logged in successfully!');
-        console.log(response.data, "====response");
+       
         dispatch(saveUserData(response.data));
         navigation.replace('Drawer'); // Navigate to the Drawer Navigator
       }

@@ -25,7 +25,7 @@ export default function RegisterScreen() {
 
   const handleRegister = async () => {
     // const url = 'http://localhost:3000/api/v1/users/register';
-    const url = 'http://192.168.1.4:3000/api/v1/users/register';
+    const url = `${baseURL}/users/register`;
 
     // const headers = {
     //   'X-IBM-Client-Id': '4b539056-6a36-4987-8d68-7b80b1cabe58',
@@ -41,7 +41,6 @@ export default function RegisterScreen() {
         Alert.alert('Success', 'User registered successfully!');
       }
     } catch (error) {
-        console.log(error,"==============")
       Alert.alert('Error', error.response?.data?.message || 'Something went wrong');
     }
   };

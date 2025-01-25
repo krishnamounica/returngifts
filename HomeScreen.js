@@ -11,12 +11,13 @@ const HomeScreen = ({ navigation }) => {
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const response = await axios.get('http://192.168.1.4:3000/api/v1/products', {
+        const response = await axios.get(`${baseURL}/products`, {
           headers: {
             Authorization: 'Bearer YOUR_API_TOKEN',
           },

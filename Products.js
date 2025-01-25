@@ -62,7 +62,7 @@ const Products = ({ selectedCategory, allProducts, navigation }) => {
     const updatedRequests = [...(requests || []), serializedFormData];
 
     try {
-      const apiUrl = `http://192.168.1.4:3000/api/v1/users/${id}`;
+      const apiUrl = `${baseURL}/users/${id}`;
       const payload = { requests: updatedRequests };
 
       await axios.put(apiUrl, payload, {

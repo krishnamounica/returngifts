@@ -19,13 +19,14 @@ const ProductDetails = ({ route }) => {
   const [loading, setLoading] = useState(false);
 
   const dispatch = useDispatch();
+  const baseURL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `http://192.168.1.4:3000/api/v1/products/${productId}`
+          `${baseURL}/products/${productId}`
         );
         setProduct(response.data);
       } catch (error) {
@@ -76,7 +77,7 @@ const ProductDetails = ({ route }) => {
       <Text style={styles.category}>Category: {product.category.name}</Text>
       {product.category.icon && (
         <Image
-          source={{ uri: `http://192.168.1.4:3000/icons/${product.category.icon}` }}
+          source={{ uri: `${baseURL}/icons/${product.category.icon}` }}
           style={styles.icon}
         />
       )}
