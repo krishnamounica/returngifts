@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { saveUserData } from './store';
 import config from './config';
-
+import Constants from 'expo-constants';
 
 
 export default LoginScreen = ({ navigation }) => {
@@ -12,7 +12,8 @@ export default LoginScreen = ({ navigation }) => {
     email: '',
     password: '',
   });
-  const baseURL = config.BASE_URL;
+ 
+const baseURL = Constants.expoConfig.extra.baseUrl;
 
   const fetchData = async () => {
     try {

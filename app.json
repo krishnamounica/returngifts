@@ -6,7 +6,6 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
@@ -24,6 +23,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "baseUrl": "https://easyshop-7095.onrender.com/api/v1",
+      "eas": {
+        "projectId": "4d6095f9-c357-4108-b336-61c8b3533634"
+      }
     }
   }
 }
